@@ -74,6 +74,7 @@ func (uc *userController) getAll(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(models.GetUsers())
 }
+
 func (uc *userController) get(id int, w http.ResponseWriter) {
 	u, err := models.GetUserByID(id)
 	if err != nil {
@@ -133,7 +134,7 @@ func (uc *userController) delete(id int, w http.ResponseWriter) {
 // create new userController, return address to it
 // returns pointer to a userController object
 
-func newUserController() *userController {
+func NewUserController() *userController {
 	return &userController{
 		userIDPattern: regexp.MustCompile(`^/users/(\d+)/?`),
 	}

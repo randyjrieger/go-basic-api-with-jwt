@@ -1,13 +1,14 @@
-package controllers
+package services
 
 import (
 	"encoding/json"
 	"io"
 	"net/http"
+	"webservice/controllers"
 )
 
 func RegisterControllers() {
-	uc := newUserController()
+	uc := controllers.NewUserController()
 
 	// matching '/users' pattern, handle with uc created
 	http.Handle("/users", uc)
